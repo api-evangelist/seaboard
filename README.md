@@ -1,33 +1,14 @@
-# Seaboard (seaboard)
-Seaboard is a Fortune 500 company. This repository captures the APIs, developer tools, and machine-readable API artifacts for Seaboard.
+# seaboard (seaboard)
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/seaboard/refs/heads/main/apis.yml)
+Seaboard Corporation is a diverse global agribusiness and transportation company involved in pork, commodity merchandising, grain processing, sugar production, electric power generation, and ocean transportation.
 
-## Scope
-
-- **Type:** Contract
-- **Position:** Consuming
-- **Access:** 3rd-Party
-
-## Tags:
-
- - Fortune 500
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/seaboard/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/seaboard/refs/heads/main/apis.yml)
 
 ## Timestamps
 
-- **Created:** 2026-03-21
 - **Modified:** 2026-03-21
-
-## APIs
-
-No public APIs have been documented yet. Contributions welcome.
 
 ## Common Properties
 
+- [LinkedIn](https://www.linkedin.com/company/seaboard-corporation)
 - [Website](https://www.seaboard.com)
-
-## Maintainers
-
-**FN:** API Evangelist
-
-**Email:** info@apievangelist.com
