@@ -6,6 +6,8 @@ url:
 modified: '2026-03-21'
 apis: []
 common:
+  - type: DomainSecurity
+    url: security/seaboard-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/seaboard-corporation
   - type: Website
