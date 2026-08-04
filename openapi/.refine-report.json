@@ -1,0 +1,14 @@
+{
+  "provider": "seaboard",
+  "sources": [
+    "seaboard-openapi.yml"
+  ],
+  "outputs": [],
+  "archived": [
+    "archived seaboard-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

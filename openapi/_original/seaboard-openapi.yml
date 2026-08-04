@@ -1,0 +1,13 @@
+openapi: 3.1.0
+info:
+  title: Seaboard Corporation API
+  description: >-
+    Seaboard Corporation is a diversified agribusiness and transportation
+    company with operations in pork production, commodity trading, marine
+    transportation, and power generation. No public developer API has been
+    identified. Seaboard Marine operates a web portal for shipping customers
+    at portal.seaboardtransportgroup.com.
+  version: '1.0'
+servers:
+  - url: https://www.seaboardcorp.com
+paths: {}
