@@ -1,51 +1,28 @@
+generated: '2026-09-04'
+method: searched
+source: >-
+  https://www.seaboardmarine.com/services/electronic-data-interchange/ and full sitemap walks
+  of seaboardcorp.com and seaboardmarine.com, 2026-09-04
+provider: Seaboard
+providerId: seaboard
 specification: API Commons Rate Limits
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
-provider: Seaboard
-providerId: seaboard
-created: '2026-05-22'
-modified: '2026-05-22'
-tags:
-- Rate Limiting
-- Quotas
-- Throttling
-description: Scaffolded rate limit definitions for the Seaboard API surface. Captures per-tier quotas, burst behavior, response
-  signaling, and recovery semantics. Defaults are scaffold values to be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
-limits:
-- tier: free
-  name: Free Tier Default
-  scope: api-key
-  metric: requests_per_minute
-  limit: 10
-  burst: 20
-  timeFrame: minute
-  applies:
-  - https://seaboard.example/api
-  description: Default per-token request rate for the free tier. Bursts above the limit return HTTP 429 with Retry-After.
-- tier: pro
-  name: Pro Tier Default
-  scope: api-key
-  metric: requests_per_minute
-  limit: 120
-  burst: 240
-  timeFrame: minute
-  applies:
-  - https://seaboard.example/api
-  description: Higher rate envelope for paid plans; reconcile against published commercial terms.
-recoveryStrategies:
-- name: Exponential Backoff
-  description: Wait Retry-After seconds (or back off exponentially up to 60s) before retrying.
-- name: Queue and Retry
-  description: Submit bulk work in batches under the burst envelope.
+limit_count: 0
+limits: []
+headers: {}
+description: >-
+  Seaboard Corporation documents no rate limits, quotas, throttling policy or exhaustion
+  response, because it operates no HTTP API. There are no X-RateLimit-* or RateLimit-* headers
+  to record and no 429 semantics to describe. The group's only machine-to-machine surface is
+  batch EDI, where throughput is governed by the bilateral trading-partner agreement rather
+  than by a published per-key envelope, and where delivery is acknowledged with the ANSI X12
+  997 Functional Acknowledgement instead of an HTTP status code.
 notes:
-- Replace scaffold values with the provider's published rate limit policy.
+  - >-
+    SUPERSEDES A SCAFFOLD. This file previously carried invented free (10 rpm / 20 burst) and
+    pro (120 rpm / 240 burst) tiers applied to a fabricated host, https://seaboard.example/api,
+    plus a full set of response headers Seaboard has never returned. All of it was removed.
+    limit_count 0 is the measured truth.
+  - >-
+    No RateLimits pointer is emitted in apis.yml — a pointer would assert published limits.

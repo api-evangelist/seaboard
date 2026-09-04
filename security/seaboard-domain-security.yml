@@ -1,24 +1,57 @@
-generated: '2026-07-11'
+generated: '2026-09-04'
 method: probed
-source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+source: live DNS/TLS/HTTP probes of apis.yml + subsidiary operating hosts (seaboardcorp.com by probe-domain-security.py;
+  seaboardmarine.com, myseaboard.seaboardmarine.com and seaboardfoods.com probed by hand in the same pass)
 hosts:
-- host: www.seaboard.com
-  https: false
 - host: www.seaboardcorp.com
   https: true
   tls_version: TLSv1.3
-  cert_expires: Sep  2 07:35:20 2026 GMT
+  cert_expires: Nov  3 06:36:25 2026 GMT
   hsts: true
   hsts_max_age: 31536000
+- host: www.seaboardmarine.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Sep 19 23:59:59 2026 GMT
+  hsts: false
+- host: myseaboard.seaboardmarine.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Sep 19 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 2592000
+  note: MySeaboard customer portal; every path probed returns 302 to the login.
+- host: www.seaboardfoods.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 17 04:07:23 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+  hsts_preload: true
 domains:
-- domain: seaboard.com
-  dnssec: false
-  caa: []
-  spf: false
-  dmarc: false
 - domain: seaboardcorp.com
   dnssec: true
   caa: []
   spf: true
   dmarc: true
   dmarc_policy: reject
+- domain: seaboardmarine.com
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: seaboardfoods.com
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+  note: DMARC published via a CNAME delegation to Proofpoint (dmarc.has.pphosted.com).
+- domain: seaboard.com
+  resolves: false
+  note: NXDOMAIN as of 2026-09-04. Not a Seaboard Corporation domain; the catalog Website pointer that named it
+    has been corrected to seaboardcorp.com.
+note: Seaboard Corporation operates its subsidiaries on separate registrable domains. The corporate domain is seaboardcorp.com;
+  www.seaboard.com (previously carried as the Website pointer) does not resolve at all. Subsidiary hosts are probed
+  here because they are where any integration surface would live.

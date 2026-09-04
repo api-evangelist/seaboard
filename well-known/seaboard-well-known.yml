@@ -1,0 +1,108 @@
+generated: '2026-09-04'
+method: probed
+source: >-
+  Anonymous HTTPS GETs against every host this record knows — the corporate domain, each
+  subsidiary operating host, and the MySeaboard customer portal — on 2026-09-04.
+provider: Seaboard
+providerId: seaboard
+description: >-
+  Well-known discovery probe for Seaboard Corporation. Every path returned a miss on every
+  host. The WordPress marketing sites answer 404 with a full HTML error page; the MySeaboard
+  portal answers 302 to its login for every path including /robots.txt, which is a login
+  catch-all rather than a served document. No WellKnown or SecurityTxt pointer is emitted in
+  apis.yml because nothing was served — this file records a verified absence, not a presence.
+hosts:
+  - host: www.seaboardcorp.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: www.seaboardmarine.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: myseaboard.seaboardmarine.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 302
+        note: redirects to the MySeaboard login; not a served document
+      - path: /.well-known/openid-configuration
+        status: 302
+        note: redirects to the MySeaboard login; not a served document
+      - path: /.well-known/oauth-authorization-server
+        status: 302
+        note: redirects to the MySeaboard login; not a served document
+      - path: /.well-known/oauth-protected-resource
+        status: 302
+        note: redirects to the MySeaboard login; not a served document
+      - path: /.well-known/api-catalog
+        status: 302
+        note: redirects to the MySeaboard login; not a served document
+      - path: /.well-known/ai-plugin.json
+        status: 302
+        note: redirects to the MySeaboard login; not a served document
+      - path: /.well-known/agent-card.json
+        status: 302
+        note: redirects to the MySeaboard login; not a served document
+      - path: /.well-known/agent.json
+        status: 302
+        note: redirects to the MySeaboard login; not a served document
+  - host: www.seaboardfoods.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+other_probes:
+  - url: https://www.seaboardcorp.com/robots.txt
+    status: 200
+    note: served, WordPress default; no Sitemap directive, no agent directives
+  - url: https://www.seaboardmarine.com/robots.txt
+    status: 200
+    note: served, WordPress default
+  - url: https://www.seaboardfoods.com/robots.txt
+    status: 200
+    note: served; names https://seaboardfoods.com/sitemap.xml
+  - url: https://myseaboard.seaboardmarine.com/robots.txt
+    status: 302
+    note: login catch-all
+agent_card:
+  found: false
+  note: >-
+    /.well-known/agent-card.json and the pre-0.3 /.well-known/agent.json were probed on all
+    four hosts. Every response was a 404 HTML error page or a 302 to a login. No a2a/ artifact
+    was written and no AgentCard pointer was emitted — an agent card must be served by the
+    provider and must never be authored on their behalf.

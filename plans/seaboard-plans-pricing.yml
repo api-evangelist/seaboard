@@ -1,45 +1,38 @@
+generated: '2026-09-04'
+method: searched
+source: >-
+  https://www.seaboardcorp.com/ (full wp-sitemap walk, 40 pages) and
+  https://www.seaboardmarine.com/ (full page sitemap walk, 169 pages), 2026-09-04
+provider: Seaboard
+providerId: seaboard
 specification: API Commons Plans
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
-provider: Seaboard
-providerId: seaboard
-created: '2026-05-22'
-modified: '2026-05-22'
-tags: []
-description: Machine-readable plans scaffold for the Seaboard API surface. Conforms to the API Commons Plans schema. Tier
-  limits and prices are scaffold defaults; replace with provider-published values.
-plans:
-- id: seaboard-free
-  name: Free
-  type: freemium
-  description: Free entry tier for the Seaboard API surface. Intended for evaluation, prototyping, and low-volume integrations.
-    Real limits and pricing must be reconciled with the provider's published plan documentation.
-  entries:
-  - label: API Requests
-    description: Monthly API request quota across all included endpoints
-    name: api_requests
-    type: quota
-    metric: requests
-    limit: 1000
-    timeFrame: month
-    geo: global
-    domains:
-    - https://seaboard.example/api
-    unit: 1
-    price: '0.00'
-    userMultiplied: false
-  - label: Rate Limit
-    description: Maximum requests per minute on the free tier
-    name: rate_limit
-    type: rate
-    metric: requests_per_minute
-    limit: 10
-    timeFrame: minute
-    geo: global
-    domains:
-    - https://seaboard.example/api
-    unit: 1
-    price: '0.00'
-references:
-- name: Seaboard API Documentation
-  url: https://raw.githubusercontent.com/api-evangelist/seaboard/refs/heads/main/apis.yml
+plan_count: 0
+plans: []
+description: >-
+  Seaboard Corporation publishes no API plans, tiers, quotas or developer pricing, because it
+  publishes no API. Every page in both sitemaps was enumerated; there is no pricing page for a
+  developer product anywhere in the group. What Seaboard Marine does publish commercially is
+  ocean freight tariff material — a rate search, a rate request form, a commodity list, tariff
+  rules, demurrage and detention terms, and fuel surcharges — which is cargo pricing for
+  shippers, not metered API pricing for integrators. Access to the Seaboard Marine EDI program
+  and the MySeaboard portal is a trading-partner relationship, not a purchasable plan.
+notes:
+  - >-
+    SUPERSEDES A SCAFFOLD. This file previously carried invented Free and Pro tiers with a
+    1,000-request monthly quota, a 10 rpm rate limit and a fabricated domain,
+    https://seaboard.example/api. None of it was ever published by Seaboard. It was scaffold
+    filler and it has been removed rather than reconciled; plan_count 0 is the measured truth.
+  - >-
+    No Plans pointer is emitted in apis.yml. A pointer would assert that Seaboard publishes
+    plans, and this file records that they do not.
+commercial_surfaces_found:
+  - name: Rates & Tariff
+    url: https://www.seaboardmarine.com/rates-tariff/
+    kind: ocean-freight-tariff
+    note: Shipper-facing cargo rates, not API pricing.
+  - name: EDI Request Form
+    url: https://www.seaboardmarine.com/edi-request/
+    kind: trading-partner-onboarding
+    note: Five-step form; no published fee schedule and no self-service tier.

@@ -13,7 +13,7 @@
     "name": "Seaboard Corporation API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "Seaboard Corporation is a diversified agribusiness and transportation company with operations in pork production, commodity trading, marine transportation, and power generation. No public developer API has been identified. Seaboard Marine operates a web portal for shipping customers at portal.seaboardtransportgroup.com.",
+      "content": "Seaboard Corporation is a diversified agribusiness and transportation holding company with operations in pork production, grain merchandising and milling, containerized ocean cargo, renewable diesel and electric power generation. No public developer API, OpenAPI contract or developer portal has been identified on any Seaboard host. The group's only documented machine-to-machine integration surface is the Seaboard Marine EDI program (https://www.seaboardmarine.com/services/electronic-data-interchange/), and its customer portal is MySeaboard at https://myseaboard.seaboardmarine.com/. SCAFFOLD: this document contains no operations because Seaboard publishes no API. It is retained as a placeholder only and is not wired into apis.yml.",
       "type": "text/plain"
     }
   }

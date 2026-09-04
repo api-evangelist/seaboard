@@ -2,7 +2,13 @@
   "opencollection": "1.0.0",
   "info": {
     "name": "Seaboard Corporation API",
-    "version": "1.0"
+    "version": "1.0",
+    "description": "Seaboard Corporation is a diversified agribusiness and transportation holding company with operations in pork production, grain merchandising and milling, containerized ocean cargo, renewable diesel and electric power generation. No public developer API, OpenAPI contract or developer portal has been identified on any Seaboard host. The group's only documented machine-to-machine integration surface is the Seaboard Marine EDI program (https://www.seaboardmarine.com/services/electronic-data-interchange/), and its customer portal is MySeaboard at https://myseaboard.seaboardmarine.com/. SCAFFOLD: this document contains no operations because Seaboard publishes no API. It is retained as a placeholder only and is not wired into apis.yml.",
+    "x-provenance": {
+      "generated": "2026-09-04",
+      "method": "none",
+      "source": "Empty scaffold. Corrected 2026-09-04: the prior description misattributed portal.seaboardtransportgroup.com to Seaboard Marine. Seaboard Transport Group is an unrelated Canadian trucking company and is not part of Seaboard Corporation."
+    }
   },
   "items": [],
   "bundled": true

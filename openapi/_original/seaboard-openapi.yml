@@ -1,13 +1,20 @@
 openapi: 3.1.0
 info:
   title: Seaboard Corporation API
-  description: >-
-    Seaboard Corporation is a diversified agribusiness and transportation
-    company with operations in pork production, commodity trading, marine
-    transportation, and power generation. No public developer API has been
-    identified. Seaboard Marine operates a web portal for shipping customers
-    at portal.seaboardtransportgroup.com.
+  description: 'Seaboard Corporation is a diversified agribusiness and transportation holding company with operations
+    in pork production, grain merchandising and milling, containerized ocean cargo, renewable diesel and electric
+    power generation. No public developer API, OpenAPI contract or developer portal has been identified on any Seaboard
+    host. The group''s only documented machine-to-machine integration surface is the Seaboard Marine EDI program
+    (https://www.seaboardmarine.com/services/electronic-data-interchange/), and its customer portal is MySeaboard
+    at https://myseaboard.seaboardmarine.com/. SCAFFOLD: this document contains no operations because Seaboard publishes
+    no API. It is retained as a placeholder only and is not wired into apis.yml.'
   version: '1.0'
+  x-generated-from: scaffold
+  x-provenance: Empty scaffold with no paths. Seaboard publishes no OpenAPI; probes for /openapi.json, /openapi.yaml,
+    /swagger.json, /api-docs, /docs and /redoc returned 404 on www.seaboardcorp.com, www.seaboardmarine.com and
+    www.seaboardfoods.com on 2026-09-04. Not registered in apis.yml. Corrected 2026-09-04 to remove a misattribution
+    of portal.seaboardtransportgroup.com (an unrelated Canadian trucking company) to Seaboard Marine.
 servers:
-  - url: https://www.seaboardcorp.com
+- url: https://www.seaboardcorp.com
+  description: Corporate website. Not an API host — no API exists.
 paths: {}

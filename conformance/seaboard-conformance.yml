@@ -1,0 +1,193 @@
+generated: '2026-09-04'
+method: searched
+source: https://www.seaboardmarine.com/services/electronic-data-interchange/
+provider: Seaboard
+providerId: seaboard
+specification: API Commons Conformance
+specificationVersion: '0.1'
+description: >-
+  Standards conformance for Seaboard Corporation. Seaboard publishes no HTTP API, no OpenAPI,
+  no GraphQL SDL and no developer portal, so every HTTP/API-layer standard below is honestly
+  false. The one real machine-to-machine integration surface in the group is the Seaboard
+  Marine Electronic Data Interchange program, which publishes a named ANSI ASC X12 and
+  UN/EDIFACT transaction-set catalog on a public first-party page. That is a genuine
+  domain-standard signature for ocean container carriage, and it is recorded here with the
+  exact page that enumerates it.
+notes:
+  - >-
+    EVIDENCE CLASS. The X12 and EDIFACT entries below are documented, not contract-verified.
+    Seaboard Marine enumerates the specific transaction sets it exchanges on its own public
+    EDI page, together with its trading-partner identifiers — which is materially stronger
+    than a marketing claim, because a partner can read the exact message list before making
+    contact. It is still weaker than a fetched machine-readable contract: no EDI
+    implementation guide, mapping specification or sample interchange is published, so the
+    segment-level detail cannot be verified without becoming a trading partner. Graded
+    accordingly.
+  - >-
+    Onboarding is gated behind a five-step trading-partner request form. The catalog is
+    public; the connection is not.
+
+domain_standards:
+  - id: ansi-asc-x12
+    name: ANSI ASC X12 (transportation and ocean transaction sets)
+    conforms: true
+    grade: documented
+    evidence: https://www.seaboardmarine.com/services/electronic-data-interchange/
+    role: Seaboard Marine exchanges these sets with shippers, forwarders, terminals, drayage
+      carriers, railroads, freight bill processors and government agencies.
+    transaction_sets:
+      - id: '300'
+        name: Booking Request
+        description: Shipper or forwarder reserves cargo space.
+      - id: '301'
+        name: Booking Confirmation
+        description: Confirms the Booking Request (300).
+      - id: '304'
+        name: Ocean Shipping Instructions
+        description: Shipper's Letter of Instruction; everything needed to prepare the ocean
+          bill of lading and contract of carriage.
+      - id: '309'
+        name: Manifest data / Automated Manifest System (AMS) with US Customs
+        description: Summary of bills of lading on a manifest; also transmits inbound cargo
+          information to US Customs and receives cargo release/hold status.
+      - id: '310'
+        name: Bill of Lading data and Ocean Invoice
+        description: Bill of lading content including freight charges.
+      - id: '315'
+        name: Shipment Status
+        description: Status or event detail for individual shipments — cargo receipt,
+          departure and arrival.
+      - id: '322'
+        name: Terminal Operations and Intermodal Ramp Activity
+        description: Terminal and intermodal ramp activity, i.e. ingates and outgates.
+      - id: '323'
+        name: Vessel Schedule and Itinerary
+        description: Schedule and itinerary of an ocean vessel.
+      - id: '204'
+        name: Motor Carrier Load Tender
+        description: Tenders a shipment to a motor carrier with scheduling, equipment
+          requirements, commodities and shipping instructions.
+      - id: '214'
+        name: Transportation Carrier Shipment Status
+        description: Carrier reports shipment status — dates, times, locations, route,
+          identifying numbers and conveyance.
+      - id: '990'
+        name: Response to a Load Tender
+        description: Response to a Motor Carrier Load Tender (204).
+      - id: '997'
+        name: Functional Acknowledgement
+        description: Validates that an EDI document was sent or received and reports any
+          errors within it.
+
+  - id: un-edifact
+    name: UN/EDIFACT (container and customs messages)
+    conforms: true
+    grade: documented
+    evidence: https://www.seaboardmarine.com/services/electronic-data-interchange/
+    messages:
+      - id: COARRI
+        name: Container discharge/loading report
+      - id: CODECO
+        name: Container gate in/gate out report
+      - id: COPRAR
+        name: Container discharge/loading order
+      - id: COREOR
+        name: Container release order
+      - id: CUSCAR
+        name: Customs cargo report
+      - id: CUSRES
+        name: Customs response
+      - id: BAPLIE
+        name: Bayplan/stowage plan, occupied and empty locations
+      - id: VERMAS
+        name: Verified gross mass (SOLAS VGM)
+      - id: APERAK
+        name: Application error and acknowledgement
+
+  - id: solas-vgm
+    name: SOLAS Verified Gross Mass
+    conforms: true
+    grade: documented
+    evidence: https://www.seaboardmarine.com/services/vgm/
+    note: >-
+      Seaboard Marine operates a public VGM submission surface and supports the EDIFACT
+      VERMAS message for the same declaration.
+
+  - id: us-customs-ams
+    name: U.S. Customs Automated Manifest System (AMS)
+    conforms: true
+    grade: documented
+    evidence: https://www.seaboardmarine.com/services/electronic-data-interchange/
+    note: X12 309 is used to file inbound cargo with US Customs and to receive release/hold status.
+
+  - id: dcsa
+    name: DCSA (Digital Container Shipping Association) track-and-trace / booking APIs
+    conforms: false
+    evidence: https://www.seaboardmarine.com/services/electronic-data-interchange/
+    note: >-
+      No DCSA API standard is referenced anywhere on Seaboard Marine's site. The carrier's
+      published integration path is EDI, not the DCSA HTTP API family that the larger ocean
+      carriers have adopted. This is the single clearest modernization gap in the record.
+
+trading_partner_profile:
+  source: https://www.seaboardmarine.com/edi-request/
+  isa_qualifier: ZZ
+  sender_id: DPSCM
+  scac_code: SMLU
+  contact: EDIAdmin@SeaboardMarine.com
+  support_line: '+1 305-863-4666'
+  transports_documented_first_party: false
+  note: >-
+    Seaboard Marine's own EDI page enumerates the message catalog but does not state the
+    transport methods. A third-party EDI trade publication describes VAN, FTP, SFTP and AS2
+    (AS2 preferred) plus ASYCUDA and custom XML; that is NOT recorded as a conformance entry
+    here because it is not provider-published and could not be verified against a Seaboard
+    source.
+  partner_types_accepted:
+    - Carrier
+    - Customer
+    - Container Yard
+    - Drayage Carrier
+    - Yard
+    - Freight Bill Processor
+    - Government Agency
+    - Marine Terminal / Out Port
+    - Railroad Yard
+
+api_layer_conformance:
+  - id: openapi
+    conforms: false
+    evidence: https://www.seaboardcorp.com/openapi.json
+    note: 404 on every corporate and subsidiary host; no OpenAPI published anywhere.
+  - id: oauth2
+    conforms: false
+    evidence: https://myseaboard.seaboardmarine.com/.well-known/oauth-authorization-server
+    note: 302 to the MySeaboard login catch-all; no authorization-server metadata served.
+  - id: oidc
+    conforms: false
+    evidence: https://www.seaboardcorp.com/.well-known/openid-configuration
+    note: 404.
+  - id: rfc9457
+    conforms: false
+    evidence: https://www.seaboardcorp.com/openapi.json
+    note: No HTTP API surface exists, so there is no error envelope to profile.
+  - id: rfc8594
+    conforms: false
+    evidence: https://www.seaboardcorp.com/openapi.json
+    note: No API, therefore no deprecation or sunset signalling.
+  - id: json-api
+    conforms: false
+    evidence: https://www.seaboardcorp.com/openapi.json
+    note: No HTTP API surface.
+  - id: idempotency
+    conforms: false
+    evidence: https://www.seaboardcorp.com/openapi.json
+    note: >-
+      Not applicable rather than failed — there is no HTTP write surface. The X12 997
+      Functional Acknowledgement provides the EDI-layer delivery guarantee instead.
+  - id: webhooks
+    conforms: false
+    evidence: https://www.seaboardmarine.com/services/electronic-data-interchange/
+    note: >-
+      Event delivery exists, but as scheduled EDI status messages (315/214) to a trading
+      partner, not as HTTP webhooks.

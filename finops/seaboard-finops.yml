@@ -22,11 +22,11 @@ principles:
 - name: Visibility
   description: Make API consumption costs visible to engineering, product, and finance teams in near real-time.
 - name: Allocation
-  description: Tag every chargeable API call with the consuming team, environment, application, and feature so cost can be
-    allocated.
+  description: Tag every chargeable API call with the consuming team, environment, application, and feature so cost
+    can be allocated.
 - name: Optimization
-  description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce cost per useful unit
-    of work.
+  description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce cost per
+    useful unit of work.
 - name: Accountability
   description: Establish budget owners and chargeback / showback flows for each consuming team.
 domains:
@@ -70,3 +70,8 @@ focusFields:
   - Tags
 notes:
 - Reconcile the scaffolded mapping above against Seaboard's actual invoice / billing model.
+generated: '2026-09-04'
+method: none
+source: Generic FinOps framework scaffold. Seaboard operates no API and bills no API consumption.
+note: SCAFFOLD — retained for shape only. Seaboard Corporation publishes no API, so there is no API consumption
+  to allocate, meter or charge back. Nothing in this file was observed on a Seaboard surface. Not wired into apis.yml.
